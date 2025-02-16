@@ -1,0 +1,68 @@
+print("It is a really tough game! If you answer every question correctly, you will win \"7 crores\"!\n")
+
+name = input("Enter your name: ")
+print(f"So, {name}, give your answers in terms of a, b, c, or d.\n")
+
+# Questions, options, answers, and prizes
+QL = [
+    "1. In what year did the Great October Socialist Revolution take place?",
+    "2. What is the largest lake in the world?",
+    "3. Which planet in the solar system is known as the 'Red Planet'?",
+    "4. Who wrote the novel 'War and Peace'?",
+    "5. What is the capital of Japan?",
+    "6. Which river is the longest in the world?",
+    "7. What gas is used to extinguish fires?",
+    "8. What animal is the national symbol of Australia?",
+    "9. Which of the following planets is not a gas giant?",
+    "10. What is the name of the process by which plants convert sunlight into energy?",
+    "11. What chemical element is designated as 'Hg'?",
+    "12. In what year was the first international modern Olympiad held?",
+    "13. For which of these disciplines is the Nobel Prize awarded?",
+    "14. Entomology is the science that studies:",
+    "15. Hitler's party is known as:",
+    "16. For what is Galileo famous?"
+]
+
+options = [
+    "a. 1917 \nb. 1923 \nc. 1914 \nd. 1920",
+    "a. Caspian Sea\nb. Baikal\nc. Lake Superior\nd. Ontario",
+    "a. Venus\nb. Earth\nc. Mars\nd. Jupiter",
+    "a. Anton Chekhov\nb. Fyodor Dostoevsky\nc. Leo Tolstoy\nd. Ivan Turgenev",
+    "a. Beijing\nb. Tokyo\nc. Seoul\nd. Bangkok",
+    "a. Amazon\nb. Mississippi\nc. Nile\nd. Yangtze",
+    "a. Oxygen\nb. Nitrogen\nc. Carbon dioxide\nd. Hydrogen",
+    "a. Kangaroo\nb. Koala\nc. Emu\nd. Crocodile",
+    "a. Mars\nb. Jupiter\nc. Saturn\nd. Uranus",
+    "a. Respiration\nb. Photosynthesis\nc. Oxidation\nd. Evolution",
+    "a. Silver\nb. Tin\nc. Copper\nd. Mercury",
+    "a. 1896\nb. 1900\nc. 1912\nd. 1924",
+    "a. Physics, Chemistry\nb. Physiology\nc. Medicine\nd. All of the above",
+    "a. Behavior of human beings\nb. Insects\nc. The origin and history of technical and scientific terms\nd. The formation of rocks",
+    "a. Labour Party\nb. Nazi Party\nc. Ku-Klux-Klan\nd. Democratic Party",
+    "a. Developed the telescope\nb. Discovered four satellites of Jupiter\nc. Found that the swinging motion of the pendulum results in consistent time measurement\nd. All of the above"
+]
+
+answers = ["a", "a", "c", "c", "b", "c", "c", "a", "a", "b", "d", "a", "d", "b", "b", "d"]
+prizes = ["1,000", "2,000", "3,000", "5,000", "10,000", "20,000", "40,000", "80,000", "1,60,000", "3,20,000", 
+          "6,40,000", "12,50,000", "25,50,000", "50,00,000", "1 crore", "7 crore"]
+
+def start_game():
+    for q in range(16):
+        print(f"\n{QL[q]}")
+        print(options[q])
+        answer = input("Answer: ").strip().lower()
+
+        if answer == answers[q]:
+            print(f"Correct! You have won ₹{prizes[q]}.")
+            if q == 15:
+                print("Congratulations! You won the grand prize of ₹7 crores!")
+                return
+        else:
+            print(f"Incorrect! The correct answer was '{answers[q]}'.")
+            if q == 0:
+                print("You leave with nothing.")
+            else:
+                print(f"You are going home with ₹{prizes[q-1]}.")
+            return
+
+start_game()
